@@ -17,3 +17,8 @@ centos7/Flint.tar.gz: Flint.tar.gz
 
 ubuntu/Flint.tar.gz: Flint.tar.gz
 	install -m 644 $< $@
+
+Flint.tar.gz:
+	git submodule init Flint
+	git submodule update Flint
+	cd Flint && git archive --format=tar.gz --prefix=Flint/ HEAD > ../Flint.tar.gz
