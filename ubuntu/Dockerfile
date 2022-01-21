@@ -11,4 +11,5 @@ RUN make -C /tmp/Flint/posix download
 RUN make -C /tmp/Flint/posix external
 RUN make -C /tmp/Flint/posix install
 RUN make -C /tmp/Flint/posix check
-CMD ["/opt/flint/bin/flint"]
+ENV PATH=/opt/flint/sequential-version/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+CMD ["flint"]
