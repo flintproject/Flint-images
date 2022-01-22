@@ -1,11 +1,11 @@
 FROM centos:7
 WORKDIR /tmp
-ADD Flint.tar.gz /tmp
 RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 RUN yum update -y
 RUN yum install -y git centos-release-scl make rpm-build rpmdevtools libtool cmake wget gtk3-devel sqlite-devel libmicrohttpd-devel libuuid-devel libxml2-devel patch zlib-devel gnuplot
 RUN yum install -y devtoolset-8
 RUN rpmdev-setuptree
+RUN git clone --depth 1 https://github.com/flintproject/Flint.git /tmp/Flint
 RUN install -m 644 /tmp/Flint/rpm/config.mk.el7 /tmp/Flint/rpm/config.mk
 RUN make -C /tmp/Flint/rpm download
 SHELL ["/bin/bash", "-c"]

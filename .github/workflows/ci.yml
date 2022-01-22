@@ -1,0 +1,32 @@
+name: CI
+
+on: push
+
+jobs:
+  flint-centos7-on-ubuntu-latest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: make flint-centos7.tar.gz
+      - uses: actions/upload-artifact@v2
+        with:
+          name: flint-centos7
+          path: flint-centos7.tar.gz
+  flint-debian-on-ubuntu-latest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: make flint-debian.tar.gz
+      - uses: actions/upload-artifact@v2
+        with:
+          name: flint-debian
+          path: flint-debian.tar.gz
+  flint-ubuntu-on-ubuntu-latest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: make flint-ubuntu.tar.gz
+      - uses: actions/upload-artifact@v2
+        with:
+          name: flint-ubuntu
+          path: flint-ubuntu.tar.gz
