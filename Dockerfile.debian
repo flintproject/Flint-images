@@ -3,7 +3,7 @@ WORKDIR /tmp
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q \
     gcc g++ autoconf automake libtool cmake \
     pkgconf libgtk-3-dev libsqlite3-dev libxml2-dev patch zlib1g-dev gnuplot \
-    git wget \
+    git unzip wget \
     && rm -rf /var/lib/apt/lists/*
 RUN git clone --depth 1 https://github.com/flintproject/Flint.git /tmp/Flint
 RUN echo 'PREFIX = /opt/flint' > /tmp/Flint/posix/config.mk
